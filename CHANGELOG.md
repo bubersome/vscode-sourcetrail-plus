@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.1.2 — 2026-06-18
+
+### Fixed
+- All command IDs namespaced (`extension.*` → `sourcetrailPlus.*`).
+  Prevents collisions when the old `astallinger.sourcetrail` extension
+  is also installed — previously `extension.startServer already exists`
+  killed activation. New IDs:
+  - sourcetrailPlus.startServer
+  - sourcetrailPlus.stopServer
+  - sourcetrailPlus.sendLocation
+  - sourcetrailPlus.sendPing
+  - sourcetrailPlus.reconnect
+  - sourcetrailPlus.showOutput
+  - sourcetrailPlus.showLastError
+
 ## 0.1.1 — 2026-06-18
 
 ### Fixed

@@ -18,13 +18,13 @@ function activate(context) {
     const sourcetrail = new Sourcetrail();
 
     const commands = [
-        ['extension.startServer', () => sourcetrail.restartServer()],
-        ['extension.stopServer', () => sourcetrail.stopServer()],
-        ['extension.sendLocation', () => sourcetrail.sendLocation()],
-        ['extension.sendPing', () => sourcetrail.sendPing()],
-        ['extension.reconnect', () => sourcetrail.reconnect()],
-        ['extension.showOutput', () => output.show()],
-        ['extension.showLastError', () => sourcetrail.showLastError()],
+        ['sourcetrailPlus.startServer', () => sourcetrail.restartServer()],
+        ['sourcetrailPlus.stopServer', () => sourcetrail.stopServer()],
+        ['sourcetrailPlus.sendLocation', () => sourcetrail.sendLocation()],
+        ['sourcetrailPlus.sendPing', () => sourcetrail.sendPing()],
+        ['sourcetrailPlus.reconnect', () => sourcetrail.reconnect()],
+        ['sourcetrailPlus.showOutput', () => output.show()],
+        ['sourcetrailPlus.showLastError', () => sourcetrail.showLastError()],
     ];
     for (const [id, fn] of commands) {
         context.subscriptions.push(vscode.commands.registerCommand(id, fn));
@@ -50,7 +50,7 @@ class Sourcetrail {
         this._retryTimer = null;
         this._retryAttempt = 0;
         this._statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right);
-        this._statusBarItem.command = 'extension.showOutput';
+        this._statusBarItem.command = 'sourcetrailPlus.showOutput';
         this.setStatus('disconnected');
         this._statusBarItem.show();
 

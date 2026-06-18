@@ -2,8 +2,8 @@
   "name": "vscode-sourcetrail-plus",
   "icon": "icon.png",
   "displayName": "Sourcetrail Plus",
-  "description": "Modernized VSCode bridge for Sourcetrail — fork of astallinger.sourcetrail with proper error reporting, automatic port-conflict retry, and 17666/17667 defaults to avoid Electron's Node-inspector port clash",
-  "version": "0.1.1",
+  "description": "Modernized VSCode bridge for Sourcetrail \u2014 fork of astallinger.sourcetrail with proper error reporting, automatic port-conflict retry, and 17666/17667 defaults to avoid Electron's Node-inspector port clash",
+  "version": "0.1.2",
   "publisher": "bubersome",
   "engines": {
     "vscode": "^1.80.0"
@@ -26,17 +26,48 @@
   "main": "./src/extension.js",
   "contributes": {
     "commands": [
-      { "command": "extension.startServer",   "title": "Sourcetrail: (Re)start Server",   "category": "Sourcetrail" },
-      { "command": "extension.stopServer",    "title": "Sourcetrail: Stop Server",        "category": "Sourcetrail" },
-      { "command": "extension.sendLocation",  "title": "Sourcetrail: Send Location",      "category": "Sourcetrail" },
-      { "command": "extension.sendPing",      "title": "Sourcetrail: Send Ping",          "category": "Sourcetrail" },
-      { "command": "extension.reconnect",     "title": "Sourcetrail: Reconnect",          "category": "Sourcetrail" },
-      { "command": "extension.showOutput",    "title": "Sourcetrail: Show Output",        "category": "Sourcetrail" },
-      { "command": "extension.showLastError", "title": "Sourcetrail: Show Last Error",    "category": "Sourcetrail" }
+      {
+        "command": "sourcetrailPlus.startServer",
+        "title": "Sourcetrail: (Re)start Server",
+        "category": "Sourcetrail"
+      },
+      {
+        "command": "sourcetrailPlus.stopServer",
+        "title": "Sourcetrail: Stop Server",
+        "category": "Sourcetrail"
+      },
+      {
+        "command": "sourcetrailPlus.sendLocation",
+        "title": "Sourcetrail: Send Location",
+        "category": "Sourcetrail"
+      },
+      {
+        "command": "sourcetrailPlus.sendPing",
+        "title": "Sourcetrail: Send Ping",
+        "category": "Sourcetrail"
+      },
+      {
+        "command": "sourcetrailPlus.reconnect",
+        "title": "Sourcetrail: Reconnect",
+        "category": "Sourcetrail"
+      },
+      {
+        "command": "sourcetrailPlus.showOutput",
+        "title": "Sourcetrail: Show Output",
+        "category": "Sourcetrail"
+      },
+      {
+        "command": "sourcetrailPlus.showLastError",
+        "title": "Sourcetrail: Show Last Error",
+        "category": "Sourcetrail"
+      }
     ],
     "menus": {
       "editor/context": [
-        { "command": "extension.sendLocation", "group": "sourcetrailgroup@1" }
+        {
+          "command": "sourcetrailPlus.sendLocation",
+          "group": "sourcetrailgroup@1"
+        }
       ]
     },
     "configuration": {
@@ -55,7 +86,7 @@
         "sourcetrail.sourcetrailPort": {
           "type": "number",
           "default": 17667,
-          "description": "Port Sourcetrail's IDE-communication server listens on. Must match Sourcetrail's Preferences → Plugin → Sourcetrail Port."
+          "description": "Port Sourcetrail's IDE-communication server listens on. Must match Sourcetrail's Preferences \u2192 Plugin \u2192 Sourcetrail Port."
         },
         "sourcetrail.startServerAtStartup": {
           "type": "boolean",
