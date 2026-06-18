@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.1 — 2026-06-18
+
+### Fixed
+- Right-click "Sourcetrail: Send Location" menu was hidden because the
+  \`navigation@9\` group + \`editorTextFocus\` when-clause conflicted with
+  other extensions / editor states. Reverted to the original
+  \`sourcetrailgroup@1\` group so the entry always shows.
+
 ## 0.1.0 — 2026-06-18 (fork)
 
 Forked from astallinger.sourcetrail 0.0.2.

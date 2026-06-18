@@ -3,7 +3,7 @@
   "icon": "icon.png",
   "displayName": "Sourcetrail Plus",
   "description": "Modernized VSCode bridge for Sourcetrail — fork of astallinger.sourcetrail with proper error reporting, automatic port-conflict retry, and 17666/17667 defaults to avoid Electron's Node-inspector port clash",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "bubersome",
   "engines": {
     "vscode": "^1.80.0"
@@ -36,7 +36,7 @@
     ],
     "menus": {
       "editor/context": [
-        { "command": "extension.sendLocation", "group": "navigation@9", "when": "editorTextFocus" }
+        { "command": "extension.sendLocation", "group": "sourcetrailgroup@1" }
       ]
     },
     "configuration": {
