@@ -1,0 +1,74 @@
+{
+  "name": "vscode-sourcetrail-plus",
+  "icon": "icon.png",
+  "displayName": "Sourcetrail Plus",
+  "description": "Modernized VSCode bridge for Sourcetrail — fork of astallinger.sourcetrail with proper error reporting, automatic port-conflict retry, and 17666/17667 defaults to avoid Electron's Node-inspector port clash",
+  "version": "0.1.0",
+  "publisher": "bubersome",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bubersome/vscode-sourcetrail-plus.git"
+  },
+  "homepage": "https://github.com/bubersome/vscode-sourcetrail-plus#readme",
+  "bugs": {
+    "url": "https://github.com/bubersome/vscode-sourcetrail-plus/issues"
+  },
+  "license": "MIT",
+  "main": "./src/extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "extension.startServer",   "title": "Sourcetrail: (Re)start Server",   "category": "Sourcetrail" },
+      { "command": "extension.stopServer",    "title": "Sourcetrail: Stop Server",        "category": "Sourcetrail" },
+      { "command": "extension.sendLocation",  "title": "Sourcetrail: Send Location",      "category": "Sourcetrail" },
+      { "command": "extension.sendPing",      "title": "Sourcetrail: Send Ping",          "category": "Sourcetrail" },
+      { "command": "extension.reconnect",     "title": "Sourcetrail: Reconnect",          "category": "Sourcetrail" },
+      { "command": "extension.showOutput",    "title": "Sourcetrail: Show Output",        "category": "Sourcetrail" },
+      { "command": "extension.showLastError", "title": "Sourcetrail: Show Last Error",    "category": "Sourcetrail" }
+    ],
+    "menus": {
+      "editor/context": [
+        { "command": "extension.sendLocation", "group": "navigation@9", "when": "editorTextFocus" }
+      ]
+    },
+    "configuration": {
+      "title": "Sourcetrail",
+      "properties": {
+        "sourcetrail.ip": {
+          "type": "string",
+          "default": "127.0.0.1",
+          "description": "IP address Sourcetrail is running on. Use 127.0.0.1 for same machine."
+        },
+        "sourcetrail.pluginPort": {
+          "type": "number",
+          "default": 17666,
+          "description": "Port this VSCode plugin listens on. Default 17666 avoids Electron's --inspect-port=0 random pool (which often steals 6666)."
+        },
+        "sourcetrail.sourcetrailPort": {
+          "type": "number",
+          "default": 17667,
+          "description": "Port Sourcetrail's IDE-communication server listens on. Must match Sourcetrail's Preferences → Plugin → Sourcetrail Port."
+        },
+        "sourcetrail.startServerAtStartup": {
+          "type": "boolean",
+          "default": true,
+          "description": "Start the bridge server automatically when VSCode starts."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^3.2.0"
+  }
+}
